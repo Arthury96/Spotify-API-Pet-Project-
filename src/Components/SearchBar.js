@@ -8,8 +8,10 @@ function SearchBar(props) {
   }, []);
 
   const search = useCallback(() => {
-    props.onSearch(term);
-  }, [props.onSearch, term]);
+    props.search(term);
+  }, [props.search, term]);
+
+  console.log(search);
 
   return (
     <div className="SearchBar">
@@ -18,7 +20,9 @@ function SearchBar(props) {
         placeholder="Type a song you want"
         onChange={handleTermChange}
       ></input>
-      <button className="SearchButton">SEARCH</button>
+      <button className="SearchButton" onClick={search}>
+        SEARCH
+      </button>
     </div>
   );
 }
